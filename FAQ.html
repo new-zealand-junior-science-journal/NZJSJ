@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NZJSJ – FAQ</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===== NAV BAR ===== */
+nav {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.nav-logo {
+  font-family: 'Barlow', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+}
+
+ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+ul.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+ul.nav-links a:hover {
+  color: #ddd;
+}
+
+.submission-button {
+  border: 1px solid white;
+  padding: 8px 15px;
+  border-radius: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.submission-button:hover {
+  background: white;
+  color: black;
+}
+
+/* ===== CONTENT ===== */
+.content-container {
+  flex: 1;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  line-height: 1.7;
+  color: #222;
+}
+
+.content-container h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.content-container h2 {
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.content-container h3 {
+  margin-top: 25px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.content-container p {
+  margin-bottom: 15px;
+}
+
+.content-container a {
+  font-weight: bold;
+  color: #000;
+  text-decoration: underline;
+}
+
+.content-container a:hover {
+  color: #555;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  width: 100%;
+  background-color: #000;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Barlow', sans-serif;
+}
+
+footer h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+footer p {
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-icons img {
+  height: 45px;
+  width: auto;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">The New Zealand Junior Science Journal</div>
+  <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Current Issue.html">NZJSJ Current Issue</a></li>
+      <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
+      <li><a href="Guidelines.html">Guidelines</a></li>
+      <li><a href="FAQ.html" class="active">FAQ</a></li>
+      <li><a href="Submissions.html" class="submission-button">Submission Portal</a></li>
+  </ul>
+</nav>
+
+<!-- CONTENT -->
+<div class="content-container">
+  <h1>Frequently Asked Questions (FAQ)</h1>
+
+  <h3>Who is allowed to submit?</h3>
+  <p>New Zealand students in Years 7–8 and Years 9–10.</p>
+
+  <h3>What types of papers may I submit?</h3>
+  <p>Students can submit either a Core Concept paper or an Independent Investigation.</p>
+
+  <h3>May I submit multiple papers?</h3>
+  <p>No, only one paper per student is allowed.</p>
+
+  <h3>Where can I find formatting guidelines and the appropriate template?</h3>
+  <p>Visit our <a href="Guidelines.html">Guidelines</a> page. At the bottom, you’ll find downloadable templates, the Writing Reports Guide, and a figure submission form.</p>
+
+  <h3>Can I write a paper with someone else?</h3>
+  <p>No, only individual submissions are accepted.</p>
+
+  <h3>What citation/reference format should I use?</h3>
+  <p>Use APA referencing, includimg both in-text citations and a bibliography at the end.</p>
+
+  <h3>Is resubmission allowed?</h3>
+  <p>Yes, papers rejected in a previous issue may be submitted again during the current application cycle.</p>
+
+  <h3>Can I do simultaneous submissions?</h3>
+  <p>Yes, but please notify us if your paper is accepted elsewhere.</p>
+
+  <h3>How many papers do you publish?</h3>
+  <p>Typically, four papers are published per issue (two of each type from each year category).</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <h1>The New Zealand Junior Science Journal</h1>
+  <p>Follow us on Instagram or email us with any questions.</p>
+
+<div class="social-icons">
+<a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
+    <img src="Pictures/Instagram.png"
+         alt="Instagram Logo" class="icon" />
+  </a>
+
+  <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
+    <img src="Pictures/Gmail.png" alt="Email Logo" class="icon" />
+  </a>
+</div>
+</footer>
+
+</body>
+</html>
