@@ -12,7 +12,8 @@
   box-sizing: border-box;
 }
 
-/* ===== BODY ===== */
+/* ================= BODY ================= */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: white;
@@ -21,12 +22,14 @@ body {
   min-height: 100vh;
 }
 
-/* ===== NAV BAR ===== */
+/* ================= NAV ================= */
+
 nav {
   display: flex;
   align-items: center;
   padding: 20px 40px;
   background-color: rgba(0,0,0,0.5);
+  position: relative;
 }
 
 .nav-logo {
@@ -36,7 +39,15 @@ nav {
   color: white;
 }
 
-ul.nav-links {
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
@@ -44,12 +55,12 @@ ul.nav-links {
   font-size: 0.9rem;
 }
 
-ul.nav-links a {
+.nav-links a {
   color: white;
   text-decoration: none;
 }
 
-ul.nav-links a:hover {
+.nav-links a:hover {
   color: #ddd;
 }
 
@@ -66,7 +77,38 @@ ul.nav-links a:hover {
   color: black;
 }
 
-/* ===== CONTENT ===== */
+/* ================= MOBILE NAV ================= */
+
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    margin-top: 15px;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+/* ================= CONTENT ================= */
+
 .content-container {
   flex: 1;
   max-width: 900px;
@@ -76,7 +118,6 @@ ul.nav-links a:hover {
   color: #222;
 }
 
-/* Page title */
 .content-container h1 {
   text-align: center;
   font-size: 2.4rem;
@@ -84,7 +125,6 @@ ul.nav-links a:hover {
   font-weight: 600;
 }
 
-/* Section headings */
 .content-container h2 {
   margin-top: 60px;
   margin-bottom: 20px;
@@ -92,13 +132,11 @@ ul.nav-links a:hover {
   font-weight: 600;
 }
 
-/* Paragraphs */
 .content-container p {
   font-size: 1.05rem;
   margin-bottom: 22px;
 }
 
-/* Lists */
 .content-container ul {
   margin-left: 25px;
   margin-bottom: 30px;
@@ -109,7 +147,6 @@ ul.nav-links a:hover {
   font-size: 1.05rem;
 }
 
-/* Links */
 .content-container a {
   font-weight: 600;
   color: #000;
@@ -120,7 +157,8 @@ ul.nav-links a:hover {
   color: #555;
 }
 
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
+
 footer {
   width: 100%;
   background-color: #000;
@@ -148,7 +186,6 @@ footer p {
 
 .social-icons img {
   height: 45px;
-  width: auto;
   transition: transform 0.3s;
 }
 
@@ -160,16 +197,19 @@ footer p {
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
   <div class="nav-logo">The New Zealand Junior Science Journal</div>
-  <ul class="nav-links">
-      <li><a href="Home.html">Home</a></li>
-      <li><a href="Current Issue.html">NZJSJ Current Issue</a></li>
-      <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
-      <li><a href="Guidelines.html" class="active">Guidelines</a></li>
-      <li><a href="FAQ.html">FAQ</a></li>
-      <li><a href="Submissions.html" class="submission-button">Submission Portal</a></li>
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Current Issue.html">NZJSJ Current Issue</a></li>
+    <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
+    <li><a href="Guidelines.html" class="active">Guidelines</a></li>
+    <li><a href="FAQ.html">FAQ</a></li>
+    <li><a href="Submissions.html" class="submission-button">Submission Portal</a></li>
   </ul>
 </nav>
 
@@ -185,48 +225,37 @@ footer p {
   </p>
 
   <p>
-    All reports must be prepared using the appropriate template linked
-    below, depending on the type of research being submitted. Authors are also
-    encouraged to read the Writing Reports Guide before beginning. Figures
-    should appear within the paper; however, each figure must also be uploaded
-    separately along with its caption text.
+    All reports must be prepared using the appropriate template linked below.
+    Authors are encouraged to read the Writing Reports Guide before beginning.
+    Figures should appear within the paper and also be uploaded separately with
+    captions.
   </p>
 
   <p>
     For the 2026–2027 Spring edition, submissions must be received by
-    <strong>May 31st, 2026</strong>. Please note that the submission portal for
-    this edition will open on <strong>March 1st, 2026</strong>.
+    <strong>May 31st, 2026</strong>. The submission portal opens on
+    <strong>March 1st, 2026</strong>.
   </p>
 
   <h2>Formatting Specifications</h2>
   <ul>
-    <li>Length: 2–5 pages (references and endnotes not included)</li>
+    <li>Length: 2–5 pages (references not included)</li>
     <li>Font: Times New Roman</li>
     <li>Font size: 10 pt</li>
-    <li>Layout: Use official NZJSJ templates</li>
-    <li>Margins: Template margins must remain unchanged</li>
+    <li>Layout: Official NZJSJ templates only</li>
+    <li>Margins: Must remain unchanged</li>
     <li>Writing style: Formal scientific language</li>
-    <li>Spelling and grammar must be accurate and consistent</li>
+    <li>Accurate spelling and grammar required</li>
   </ul>
 
-
   <p>
-    Files should be named using the format below to ensure correct processing:
-    <br />
-
+    Files should be named as:
+    <br>
     <em>LastnameFirstname_paper.docx</em>,
     <em>LastnameFirstname_figures.ppt</em>
   </p>
 
   <h2>Templates and Guide</h2>
-
-  <p>
-    All authors are required to use the correct submission template. We strongly
-    recommend reviewing the Writing Reports Guide prior to writing, as it
-    outlines expectations and provides detailed advice for successful
-    submissions.
-  </p>
-
   <ul>
     <li>
       <a href="Documents/NZJSJ Writing Reports Guide.pdf" download>
@@ -243,13 +272,11 @@ footer p {
         Independent Investigation Template (.docx)
       </a>
     </li>
-    
-     <li>
+    <li>
       <a href="Documents/NZJSJ Figures Template.ppt" download>
         Figures Template (.ppt)
       </a>
     </li>
-    
   </ul>
 </div>
 
@@ -258,17 +285,25 @@ footer p {
   <h1>The New Zealand Junior Science Journal</h1>
   <p>Follow us on Instagram or email us with any questions.</p>
 
-<div class="social-icons">
-<a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
-    <img src="Pictures/Instagram.png"
-         alt="Instagram Logo" class="icon" />
-  </a>
-
-  <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
-    <img src="Pictures/Gmail.png" alt="Email Logo" class="icon" />
-  </a>
-</div>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
+      <img src="Pictures/Instagram.png" alt="Instagram">
+    </a>
+    <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
+      <img src="Pictures/Gmail.png" alt="Email">
+    </a>
+  </div>
 </footer>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
 
 </body>
 </html>
+
