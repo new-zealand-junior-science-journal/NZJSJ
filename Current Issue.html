@@ -20,12 +20,14 @@ body {
   min-height: 100vh;
 }
 
-/* ===== NAVIGATION ===== */
+/* ================= NAV ================= */
+
 nav {
   display: flex;
   align-items: center;
   padding: 20px 40px;
- background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
 }
 
 .nav-logo {
@@ -35,7 +37,15 @@ nav {
   color: white;
 }
 
-ul.nav-links {
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
@@ -43,12 +53,12 @@ ul.nav-links {
   font-size: 0.9rem;
 }
 
-ul.nav-links a {
+.nav-links a {
   color: white;
   text-decoration: none;
 }
 
-ul.nav-links a:hover {
+.nav-links a:hover {
   color: #ddd;
 }
 
@@ -65,30 +75,54 @@ ul.nav-links a:hover {
   color: black;
 }
 
-/* ===== CONTENT ===== */
+/* ================= MOBILE NAV ================= */
+
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    margin-top: 15px;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+/* ================= CONTENT ================= */
+
 .content-container {
   flex: 1;
   padding: 60px 20px;
   text-align: center;
 }
 
-.current-issue {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .issue-image {
   display: block;
   margin: 0 auto 30px;
-  max-width: 200px; /* smaller size */
+  max-width: 200px;
   width: 100%;
-  height: auto;
 }
 
 .issue-text {
   max-width: 650px;
+  margin: 0 auto;
   font-size: 1.1rem;
   line-height: 1.7;
   color: #222;
@@ -100,7 +134,8 @@ ul.nav-links a:hover {
   text-decoration: underline;
 }
 
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
+
 footer {
   width: 100%;
   background-color: #000;
@@ -128,7 +163,6 @@ footer p {
 
 .social-icons img {
   height: 45px;
-  width: auto;
   transition: transform 0.3s;
 }
 
@@ -140,28 +174,31 @@ footer p {
 
 <body>
 
-<!-- Navigation only -->
+<!-- Navigation -->
 <nav>
   <div class="nav-logo">The New Zealand Junior Science Journal</div>
-  <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Current Issue.html" class="active">NZJSJ Current Issue</a></li>
-      <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
-      <li><a href="Guidelines.html">Guidelines</a></li>
-      <li><a href="FAQ.html">FAQ</a></li>
-      <li><a href="Submissions.html" class="submission-button">Submission Portal</a></li>
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Current Issue.html" class="active">NZJSJ Current Issue</a></li>
+    <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
+    <li><a href="Guidelines.html">Guidelines</a></li>
+    <li><a href="FAQ.html">FAQ</a></li>
+    <li><a href="Submissions.html" class="submission-button">Submission Portal</a></li>
   </ul>
 </nav>
 
 <!-- Content -->
-<div class="content-container current-issue">
+<div class="content-container">
   <img src="Pictures/Confetti.png" alt="Image" class="issue-image">
 
   <p class="issue-text">
     The New Zealand Junior Science Journal has recently launched, and we are
     currently preparing our first issue. For more information on submissions
     and important dates, please visit our
-    <a href="guidelines.html">Guidelines</a> page.
+    <a href="Guidelines.html">Guidelines</a> page.
   </p>
 </div>
 
@@ -170,17 +207,24 @@ footer p {
   <h1>The New Zealand Junior Science Journal</h1>
   <p>Follow us on Instagram or email us with any questions.</p>
 
- <div class="social-icons">
-  <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
-    <img src="Pictures/Instagram.png"
-         alt="Instagram Logo" class="icon" />
-  </a>
-
-  <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
-    <img src="Pictures/Gmail.png" alt="Email Logo" class="icon" />
-  </a>
-</div>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
+      <img src="Pictures/Instagram.png" alt="Instagram">
+    </a>
+    <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
+      <img src="Pictures/Gmail.png" alt="Email">
+    </a>
+  </div>
 </footer>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
 
 </body>
 </html>
