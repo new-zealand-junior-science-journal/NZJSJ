@@ -4,20 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NZJSJ – Submission Portal</title>
+
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: white;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* NAVBAR */
+/* ================= NAV ================= */
+
 nav {
   display: flex;
   align-items: center;
   padding: 20px 40px;
   background-color: rgba(0,0,0,0.5);
+  position: relative;
 }
 
 .nav-logo {
@@ -26,19 +36,28 @@ nav {
   color: white;
 }
 
-ul.nav-links {
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
   margin-left: auto;
 }
 
-ul.nav-links a {
+.nav-links a {
   color: white;
   text-decoration: none;
+  font-size: 0.9rem;
 }
 
-ul.nav-links a:hover {
+.nav-links a:hover {
   color: #ddd;
 }
 
@@ -50,8 +69,40 @@ ul.nav-links a:hover {
   text-transform: uppercase;
 }
 
-/* CONTENT */
+/* ================= MOBILE NAV ================= */
+
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    margin-top: 15px;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+/* ================= CONTENT ================= */
+
 .content-container {
+  flex: 1;
   max-width: 800px;
   margin: 40px auto;
   padding: 0 20px;
@@ -59,7 +110,12 @@ ul.nav-links a:hover {
   color: #222;
 }
 
-/* FOOTER */
+.content-container h1 {
+  margin-bottom: 20px;
+}
+
+/* ================= FOOTER ================= */
+
 footer {
   width: 100%;
   background-color: #000;
@@ -87,7 +143,6 @@ footer p {
 
 .social-icons img {
   height: 45px;
-  width: auto;
   transition: transform 0.3s;
 }
 
@@ -102,7 +157,10 @@ footer p {
 <!-- NAV -->
 <nav>
   <div class="nav-logo">The New Zealand Junior Science Journal</div>
-  <ul class="nav-links">
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="Current Issue.html">NZJSJ Current Issue</a></li>
     <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
@@ -116,7 +174,9 @@ footer p {
 <div class="content-container">
   <h1>Submission Portal</h1>
   <p>
-    Welcome to the NZJSJ submission portal! Our submissions for the 2026–2027 Spring edition are not yet open. Please check back after <strong>March 1st, 2026</strong>.
+    Welcome to the NZJSJ submission portal! Submissions for the 2026–2027 Spring
+    edition are not yet open. Please check back after
+    <strong>March 1st, 2026</strong>.
   </p>
 </div>
 
@@ -125,19 +185,25 @@ footer p {
   <h1>The New Zealand Junior Science Journal</h1>
   <p>Follow us on Instagram or email us with any questions.</p>
 
-<div class="social-icons">
-<a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
-    <img src="Pictures/Instagram.png"
-         alt="Instagram Logo" class="icon" />
-  </a>
-
-  <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
-    <img src="Pictures/Gmail.png" alt="Email Logo" class="icon" />
-  </a>
-</div>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
+      <img src="Pictures/Instagram.png" alt="Instagram">
+    </a>
+    <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
+      <img src="Pictures/Gmail.png" alt="Email">
+    </a>
+  </div>
 </footer>
-  
-  
-  
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
 </body>
 </html>
+
