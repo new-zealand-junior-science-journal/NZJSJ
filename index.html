@@ -26,6 +26,7 @@
 <!-- Favicon -->
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+<!-- ================= CSS ================= -->
 <style>
 * {
   margin: 0;
@@ -36,9 +37,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: white;
+  color: #222;
 }
 
 /* ================= HEADER ================= */
+
 header {
   position: relative;
   width: 100%;
@@ -50,11 +53,12 @@ header::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5); /* semi-transparent overlay exactly like second version */
+  background: rgba(0,0,0,0.5);
   z-index: 1;
 }
 
 /* ================= NAV ================= */
+
 nav {
   position: relative;
   display: flex;
@@ -91,6 +95,7 @@ nav {
   text-decoration: none;
   font-size: 0.9rem;
   letter-spacing: 0.04em;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -106,6 +111,7 @@ nav {
 }
 
 /* ================= MOBILE NAV ================= */
+
 @media (max-width: 768px) {
   header {
     height: 300px;
@@ -139,6 +145,7 @@ nav {
 }
 
 /* ================= HEADER TEXT ================= */
+
 .header-text {
   position: absolute;
   top: 50%;
@@ -154,12 +161,12 @@ nav {
 }
 
 /* ================= CONTENT ================= */
+
 .content-container {
   max-width: 1000px;
   margin: 40px auto;
   padding: 40px 20px;
   text-align: center;
-  color: #222;
   line-height: 1.6;
 }
 
@@ -188,7 +195,27 @@ h3 {
   line-height: 1.8;
 }
 
+/* ================= PURPOSE & BACKGROUND ================= */
+
+.section-text {
+  max-width: 800px;
+  margin: 50px auto;
+  text-align: center;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+.section-text h2 {
+  margin-bottom: 20px;
+}
+
+.section-text p {
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
 /* ================= FOOTER ================= */
+
 .ending-container {
   background: #000;
   color: white;
@@ -212,10 +239,27 @@ h3 {
 .social-icons img {
   height: 50px;
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .social-icons img:hover {
   transform: scale(1.1);
+}
+
+/* ================= MOBILE SMALL SCREEN FIXES ================= */
+@media (max-width: 480px) {
+  .section-text {
+    padding: 0 15px;
+    margin: 30px auto;
+  }
+  
+  .section-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .section-text p {
+    font-size: 1rem;
+  }
 }
 </style>
 </head>
@@ -262,12 +306,25 @@ h3 {
   </ul>
 </div>
 
+<!-- Purpose and Background sections -->
+<div class="section-text">
+  <h2>Purpose</h2>
+  <p>
+    Despite science being essential for future innovation and critical thinking, young people in Aotearoa New Zealand currently face limited high-quality science engagement and opportunities outside the classroom. National education data shows that only 11% of New Zealand primary students are taught by teachers with a specialised science education, compared with an international average of 31%, and just 28% of primary teachers regularly use scientific concepts in teaching — well below global benchmarks. This suggests that many students are not being exposed to science rigor and exploration opportunities at an early age. Furthermore, evidence shows that student engagement in science tends to decline as learners progress through school, and many 15-year-olds report lower interest in science compared with their peers overseas. Here, at NZJSJ we aim to bridge this gap through creating research opportunities for Year 8-10's with our platform.
+  </p>
+
+  <h2>Background</h2>
+  <p>
+    The New Zealand Junior Science Journal was founded to give young people in Aotearoa New Zealand the chance to actively participate in scientific research. Unlike other publications, this journal is entirely student-led, with students themselves handling the planning, reviewing, and editorial processes.
+  </p>
+</div>
+
 <footer class="ending-container">
   <h1 class="footer-title">The New Zealand Junior Science Journal</h1>
   <p>Connect with us on Instagram or email us</p>
 
   <div class="social-icons">
-    <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
+    <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank" rel="noopener noreferrer">
       <img src="Pictures/Instagram.png" alt="Instagram">
     </a>
     <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
