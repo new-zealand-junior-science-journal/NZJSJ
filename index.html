@@ -43,31 +43,39 @@ body {
 header {
   position: relative;
   width: 100%;
-  padding: 20px 0;
-  background: #f5f5f5; /* light neutral background instead of image */
-  text-align: center;
+  height: 400px;
+  background: url('993e2009-4bda-49f2-8353-db09e82a088f.png') no-repeat center / cover;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
 }
 
 /* ================= NAV ================= */
 nav {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  padding: 20px 40px;
   gap: 40px;
+  z-index: 2;
 }
 
 .nav-logo {
   font-family: 'Barlow', sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
-  color: #222;
+  color: white;
 }
 
 .menu-toggle {
   display: none;
   font-size: 1.8rem;
-  color: #222;
+  color: white;
   cursor: pointer;
   margin-left: auto;
 }
@@ -76,21 +84,22 @@ nav {
   list-style: none;
   display: flex;
   gap: 30px;
+  margin-left: auto;
 }
 
 .nav-links a {
-  color: #222;
+  color: white;
   text-decoration: none;
   font-size: 0.9rem;
   letter-spacing: 0.04em;
 }
 
 .nav-links a:hover {
-  color: #555;
+  color: #ddd;
 }
 
 .submission-button {
-  border: 1px solid #222;
+  border: 1px solid white;
   padding: 8px 15px;
   border-radius: 3px;
   text-transform: uppercase;
@@ -99,6 +108,14 @@ nav {
 
 /* ================= MOBILE NAV ================= */
 @media (max-width: 768px) {
+  header {
+    height: 300px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
   .menu-toggle {
     display: block;
   }
@@ -107,7 +124,7 @@ nav {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: #f5f5f5;
+    background: rgba(0,0,0,0.95);
     margin-top: 15px;
     padding: 10px 0;
   }
@@ -124,11 +141,17 @@ nav {
 
 /* ================= HEADER TEXT ================= */
 .header-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
   font-size: 2rem;
   letter-spacing: 0.1em;
+  text-align: center;
+  color: white;
   font-weight: bold;
-  color: #222;
-  margin-top: 20px;
+  max-width: 90%;
 }
 
 /* ================= CONTENT ================= */
@@ -203,7 +226,9 @@ h3 {
 <header>
   <nav>
     <div class="nav-logo">The New Zealand Junior Science Journal</div>
+
     <div class="menu-toggle" id="menu-toggle">☰</div>
+
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="Current Issue.html">NZJSJ Current Issue</a></li>
@@ -214,9 +239,7 @@ h3 {
     </ul>
   </nav>
 
-  <div class="header-text">
-    Inspiring Our Youth.
-  </div>
+  <div class="header-text">Inspiring Our Youth.</div>
 </header>
 
 <div class="content-container">
@@ -265,4 +288,5 @@ h3 {
 
 </body>
 </html>
+
 
