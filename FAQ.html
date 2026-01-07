@@ -20,12 +20,14 @@ body {
   min-height: 100vh;
 }
 
-/* ===== NAV BAR ===== */
+/* ================= NAV ================= */
+
 nav {
   display: flex;
   align-items: center;
   padding: 20px 40px;
   background-color: rgba(0,0,0,0.5);
+  position: relative;
 }
 
 .nav-logo {
@@ -35,7 +37,15 @@ nav {
   color: white;
 }
 
-ul.nav-links {
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav-links {
   list-style: none;
   display: flex;
   gap: 30px;
@@ -43,12 +53,12 @@ ul.nav-links {
   font-size: 0.9rem;
 }
 
-ul.nav-links a {
+.nav-links a {
   color: white;
   text-decoration: none;
 }
 
-ul.nav-links a:hover {
+.nav-links a:hover {
   color: #ddd;
 }
 
@@ -65,7 +75,38 @@ ul.nav-links a:hover {
   color: black;
 }
 
-/* ===== CONTENT ===== */
+/* ================= MOBILE NAV ================= */
+
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(0,0,0,0.95);
+    margin-top: 15px;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 12px 0;
+  }
+}
+
+/* ================= CONTENT ================= */
+
 .content-container {
   flex: 1;
   max-width: 800px;
@@ -80,13 +121,8 @@ ul.nav-links a:hover {
   margin-bottom: 40px;
 }
 
-.content-container h2 {
-  margin-top: 50px;
-  margin-bottom: 15px;
-}
-
 .content-container h3 {
-  margin-top: 25px;
+  margin-top: 30px;
   margin-bottom: 5px;
   color: #333;
 }
@@ -105,7 +141,8 @@ ul.nav-links a:hover {
   color: #555;
 }
 
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
+
 footer {
   width: 100%;
   background-color: #000;
@@ -133,7 +170,6 @@ footer p {
 
 .social-icons img {
   height: 45px;
-  width: auto;
   transition: transform 0.3s;
 }
 
@@ -148,13 +184,16 @@ footer p {
 <!-- NAV -->
 <nav>
   <div class="nav-logo">The New Zealand Junior Science Journal</div>
-  <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Current Issue.html">NZJSJ Current Issue</a></li>
-      <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
-      <li><a href="Guidelines.html">Guidelines</a></li>
-      <li><a href="FAQ.html" class="active">FAQ</a></li>
-      <li><a href="Submissions.html" class="submission-button">Submission Portal</a></li>
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Current Issue.html">NZJSJ Current Issue</a></li>
+    <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
+    <li><a href="Guidelines.html">Guidelines</a></li>
+    <li><a href="FAQ.html" class="active">FAQ</a></li>
+    <li><a href="Submissions.html" class="submission-button">Submission Portal</a></li>
   </ul>
 </nav>
 
@@ -172,22 +211,26 @@ footer p {
   <p>No, only one paper per student is allowed.</p>
 
   <h3>Where can I find formatting guidelines and the appropriate template?</h3>
-  <p>Visit our <a href="Guidelines.html">Guidelines</a> page. At the bottom, you’ll find downloadable templates, the Writing Reports Guide, and a figure submission form.</p>
+  <p>
+    Visit our <a href="Guidelines.html">Guidelines</a> page. At the bottom,
+    you’ll find downloadable templates, the Writing Reports Guide,
+    and a figure submission form.
+  </p>
 
   <h3>Can I write a paper with someone else?</h3>
   <p>No, only individual submissions are accepted.</p>
 
   <h3>What citation/reference format should I use?</h3>
-  <p>Use APA referencing, includimg both in-text citations and a bibliography at the end.</p>
+  <p>Use APA referencing, including both in-text citations and a bibliography.</p>
 
   <h3>Is resubmission allowed?</h3>
-  <p>Yes, papers rejected in a previous issue may be submitted again during the current application cycle.</p>
+  <p>Yes, papers rejected in a previous issue may be submitted again.</p>
 
   <h3>Can I do simultaneous submissions?</h3>
   <p>Yes, but please notify us if your paper is accepted elsewhere.</p>
 
   <h3>How many papers do you publish?</h3>
-  <p>Typically, four papers are published per issue (two of each type from each year category).</p>
+  <p>Typically, four papers are published per issue.</p>
 </div>
 
 <!-- FOOTER -->
@@ -195,17 +238,25 @@ footer p {
   <h1>The New Zealand Junior Science Journal</h1>
   <p>Follow us on Instagram or email us with any questions.</p>
 
-<div class="social-icons">
-<a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
-    <img src="Pictures/Instagram.png"
-         alt="Instagram Logo" class="icon" />
-  </a>
-
-  <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
-    <img src="Pictures/Gmail.png" alt="Email Logo" class="icon" />
-  </a>
-</div>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
+      <img src="Pictures/Instagram.png" alt="Instagram">
+    </a>
+    <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
+      <img src="Pictures/Gmail.png" alt="Email">
+    </a>
+  </div>
 </footer>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
 
 </body>
 </html>
+
