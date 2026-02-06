@@ -1,177 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NZJSJ – Current Issue</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NZJSJ – Current Issue</title>
 
-  <!-- Favicon (legacy + modern + iOS) -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="32x32" href="Logo.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="Logo.png">
-  <link rel="apple-touch-icon" href="Logo.png">
-  
-  <!-- Theme color for Android/Chrome -->
-  <meta name="theme-color" content="#000000">
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="Logo.png">
+<link rel="icon" type="image/png" sizes="192x192" href="Logo.png">
+<link rel="apple-touch-icon" href="Logo.png">
+<meta name="theme-color" content="#000000">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<!-- Barlow font -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:white; display:flex; flex-direction:column; min-height:100vh; }
 
-    /* ================= NAV ================= */
-    nav {
-      display: flex;
-      align-items: center;
-      padding: 20px 40px;
-      background-color: rgba(0,0,0,0.5);
-      position: relative;
-    }
+/* NAV */
+nav { display:flex; align-items:center; padding:20px 40px; background-color:rgba(0,0,0,0.5); position:relative; }
+.nav-logo { font-family:'Barlow', sans-serif; font-weight:bold; font-size:1.5rem; color:white; }
+.menu-toggle { display:none; font-size:1.8rem; color:white; cursor:pointer; margin-left:auto; }
+.nav-links { list-style:none; display:flex; gap:30px; margin-left:auto; font-size:0.9rem; }
+.nav-links a { color:white; text-decoration:none; }
+.nav-links a:hover { color:#ddd; }
+.submission-button { border:1px solid white; padding:8px 15px; border-radius:3px; font-weight:700; text-transform:uppercase; }
+.submission-button:hover { background:white; color:black; }
 
-    .nav-logo {
-      font-family: 'Barlow', sans-serif;
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: white;
-    }
+/* MOBILE NAV */
+@media(max-width:768px){
+  nav{ flex-wrap:wrap; }
+  .menu-toggle{ display:block; }
+  .nav-links{ display:none; flex-direction:column; width:100%; background:rgba(0,0,0,0.95); margin-top:15px; padding:10px 0; }
+  .nav-links.active{ display:flex; }
+  .nav-links li{ text-align:center; padding:12px 0; }
+}
 
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      color: white;
-      cursor: pointer;
-      margin-left: auto;
-    }
+/* CONTENT */
+.content-container{ flex:1; padding:60px 20px; text-align:center; }
+.issue-image{ display:block; margin:0 auto 30px; max-width:200px; width:100%; }
+.issue-text{ max-width:650px; margin:0 auto; font-size:1.1rem; line-height:1.7; color:#222; }
+.issue-text a{ color:#000; font-weight:bold; text-decoration:underline; }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-      margin-left: auto;
-      font-size: 0.9rem;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: #ddd;
-    }
-
-    .submission-button {
-      border: 1px solid white;
-      padding: 8px 15px;
-      border-radius: 3px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .submission-button:hover {
-      background: white;
-      color: black;
-    }
-
-    /* ================= MOBILE NAV ================= */
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(0,0,0,0.95);
-        margin-top: 15px;
-        padding: 10px 0;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links li {
-        text-align: center;
-        padding: 12px 0;
-      }
-    }
-
-    /* ================= CONTENT ================= */
-    .content-container {
-      flex: 1;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .issue-image {
-      display: block;
-      margin: 0 auto 30px;
-      max-width: 200px;
-      width: 100%;
-    }
-
-    .issue-text {
-      max-width: 650px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #222;
-    }
-
-    .issue-text a {
-      color: #000;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      width: 100%;
-      background-color: #000;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-      font-family: 'Barlow', sans-serif;
-    }
-
-    footer h1 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      font-weight: 300;
-      margin-bottom: 25px;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-    }
-
-    .social-icons img {
-      height: 45px;
-      transition: transform 0.3s;
-    }
-
-    .social-icons img:hover {
-      transform: scale(1.1);
-    }
-  </style>
+/* FOOTER */
+footer{ width:100%; background-color:#000; color:white; padding:60px 20px; text-align:center; font-family:'Barlow', sans-serif; }
+footer h1{ font-size:2rem; margin-bottom:15px; }
+footer p{ font-weight:300; margin-bottom:25px; }
+.social-icons{ display:flex; justify-content:center; gap:25px; }
+.social-icons img{ height:45px; transition: transform 0.3s; }
+.social-icons img:hover{ transform:scale(1.1); }
+</style>
 </head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">The New Zealand Junior Science Journal</div>
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Current Issue.html" class="active">NZJSJ Current Issue</a></li>
+    <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
+    <li><a href="Guidelines.html">Guidelines</a></li>
+    <li><a href="FAQ.html">FAQ</a></li>
+    <li><a href="Submissions.html" class="submission-button">Submission Portal</a></li>
+  </ul>
+</nav>
+
+<!-- CONTENT -->
+<div class="content-container">
+  <img src="Pictures/CurrentIssueLogo.png" alt="Current Issue Logo" class="issue-image">
+  <div class="issue-text">
+    <p>
+      Welcome to the NZJSJ Current Issue page. Here you will find the latest edition's
+      Core Concept papers and Independent Investigations. Click the links below to download the articles:
+    </p>
+    <p>
+      <a href="Documents/CurrentIssue_2026.pdf" target="_blank">Download PDF of Current Issue</a>
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <h1>The New Zealand Junior Science Journal</h1>
+  <p>Follow us on Instagram or email us with any questions.</p>
+  <div class="social-icons">
+    <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
+      <img src="Pictures/Instagram.png" alt="Instagram">
+    </a>
+    <a href="mailto:newzealandjuniorsciencejournal@gmail.com">
+      <img src="Pictures/Gmail.png" alt="Email">
+    </a>
+  </div>
+</footer>
+
+<script>
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+toggle.addEventListener("click", () => { navLinks.classList.toggle("active"); });
+</script>
+
+</body>
+</html>
+
 
