@@ -1,159 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NZJSJ – Submission Portal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NZJSJ – Submission Portal</title>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <!-- Favicon (legacy + modern + iOS) -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="Logo.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="Logo.png">
+  <link rel="apple-touch-icon" href="Logo.png">
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+  <!-- Theme color for Chrome/Android -->
+  <meta name="theme-color" content="#000000">
 
-  <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" href="Logo.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ================= NAV ================= */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-nav {
-  display: flex;
-  align-items: center;
-  padding: 20px 40px;
-  background-color: rgba(0,0,0,0.5);
-  position: relative;
-}
+    /* ================= NAV ================= */
+    nav {
+      display: flex;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0,0,0,0.5);
+      position: relative;
+    }
 
-.nav-logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: white;
-}
+    .nav-logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: white;
+    }
 
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  color: white;
-  cursor: pointer;
-  margin-left: auto;
-}
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      margin-left: auto;
+    }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin-left: auto;
-}
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin-left: auto;
+    }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
 
-.nav-links a:hover {
-  color: #ddd;
-}
+    .nav-links a:hover {
+      color: #ddd;
+    }
 
-.submission-button {
-  border: 1px solid white;
-  padding: 8px 15px;
-  border-radius: 3px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
+    .submission-button {
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
 
-/* ================= MOBILE NAV ================= */
+    /* ================= MOBILE NAV ================= */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+      }
 
-@media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-  }
+      .menu-toggle {
+        display: block;
+      }
 
-  .menu-toggle {
-    display: block;
-  }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        margin-top: 15px;
+        padding: 10px 0;
+      }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: rgba(0,0,0,0.95);
-    margin-top: 15px;
-    padding: 10px 0;
-  }
+      .nav-links.active {
+        display: flex;
+      }
 
-  .nav-links.active {
-    display: flex;
-  }
+      .nav-links li {
+        text-align: center;
+        padding: 12px 0;
+      }
+    }
 
-  .nav-links li {
-    text-align: center;
-    padding: 12px 0;
-  }
-}
+    /* ================= CONTENT ================= */
+    .content-container {
+      flex: 1;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.7;
+      color: #222;
+    }
 
-/* ================= CONTENT ================= */
+    .content-container h1 {
+      margin-bottom: 20px;
+    }
 
-.content-container {
-  flex: 1;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  line-height: 1.7;
-  color: #222;
-}
+    /* ================= FOOTER ================= */
+    footer {
+      width: 100%;
+      background-color: #000;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      font-family: 'Barlow', sans-serif;
+    }
 
-.content-container h1 {
-  margin-bottom: 20px;
-}
+    footer h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
 
-/* ================= FOOTER ================= */
+    footer p {
+      font-weight: 300;
+      margin-bottom: 25px;
+    }
 
-footer {
-  width: 100%;
-  background-color: #000;
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
-  font-family: 'Barlow', sans-serif;
-}
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
 
-footer h1 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-}
+    .social-icons img {
+      height: 45px;
+      transition: transform 0.3s;
+    }
 
-footer p {
-  font-weight: 300;
-  margin-bottom: 25px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-}
-
-.social-icons img {
-  height: 45px;
-  transition: transform 0.3s;
-}
-
-.social-icons img:hover {
-  transform: scale(1.1);
-}
-</style>
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 
 <body>
@@ -210,4 +211,5 @@ footer p {
 
 </body>
 </html>
+
 
