@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>NZJSJ – FAQ</title>
 
+<!-- Favicon (legacy + modern + iOS) -->
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="Logo.png">
+<link rel="icon" type="image/png" sizes="192x192" href="Logo.png">
+<link rel="apple-touch-icon" href="Logo.png">
+
+<!-- Theme color for Chrome/Android -->
+<meta name="theme-color" content="#000000">
+
 <style>
 * {
   margin: 0;
@@ -20,12 +29,7 @@ body {
   min-height: 100vh;
 }
 
-  <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" href="Logo.png">
-
 /* ================= NAV ================= */
-
 nav {
   display: flex;
   align-items: center;
@@ -80,7 +84,6 @@ nav {
 }
 
 /* ================= MOBILE NAV ================= */
-
 @media (max-width: 768px) {
   nav {
     flex-wrap: wrap;
@@ -110,7 +113,6 @@ nav {
 }
 
 /* ================= CONTENT ================= */
-
 .content-container {
   flex: 1;
   max-width: 800px;
@@ -146,7 +148,6 @@ nav {
 }
 
 /* ================= FOOTER ================= */
-
 footer {
   width: 100%;
   background-color: #000;
@@ -253,14 +254,15 @@ footer p {
 </footer>
 
 <script>
-  const toggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
 
-  toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+toggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
 </script>
 
 </body>
 </html>
+
 
