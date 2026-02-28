@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NZJSJ – Submission Portal</title>
+  <title>NZJSJ – Home</title>
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -13,11 +13,7 @@
   <meta name="theme-color" content="#000000">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -36,11 +32,7 @@
       position: relative;
     }
 
-    .nav-logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: white;
-    }
+    .nav-logo { font-weight: bold; font-size: 1.5rem; color: white; }
 
     .menu-toggle {
       display: none;
@@ -63,9 +55,7 @@
       font-size: 0.9rem;
     }
 
-    .nav-links a:hover {
-      color: #ddd;
-    }
+    .nav-links a:hover { color: #ddd; }
 
     .submission-button {
       border: 1px solid white;
@@ -76,14 +66,8 @@
     }
 
     @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
+      nav { flex-wrap: wrap; }
+      .menu-toggle { display: block; }
       .nav-links {
         display: none;
         flex-direction: column;
@@ -92,15 +76,8 @@
         margin-top: 15px;
         padding: 10px 0;
       }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links li {
-        text-align: center;
-        padding: 12px 0;
-      }
+      .nav-links.active { display: flex; }
+      .nav-links li { text-align: center; padding: 12px 0; }
     }
 
     /* ================= CONTENT ================= */
@@ -113,15 +90,21 @@
       color: #222;
     }
 
-    .content-container h1 {
-      margin-bottom: 20px;
+    .content-container h1 { margin-bottom: 20px; }
+    .content-container p { margin-bottom: 20px; }
+
+    .submission-link {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: black;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      text-transform: uppercase;
     }
 
-    .form-container {
-      width: 100%;
-      height: 1000px; /* adjust height as needed */
-      border: none;
-    }
+    .submission-link:hover { background-color: #333; }
 
     /* ================= FOOTER ================= */
     footer {
@@ -133,15 +116,8 @@
       font-family: 'Barlow', sans-serif;
     }
 
-    footer h1 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-
-    footer p {
-      font-weight: 300;
-      margin-bottom: 25px;
-    }
+    footer h1 { font-size: 2rem; margin-bottom: 15px; }
+    footer p { font-weight: 300; margin-bottom: 25px; }
 
     .social-icons {
       display: flex;
@@ -154,9 +130,8 @@
       transition: transform 0.3s;
     }
 
-    .social-icons img:hover {
-      transform: scale(1.1);
-    }
+    .social-icons img:hover { transform: scale(1.1); }
+
   </style>
 </head>
 
@@ -165,37 +140,37 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">The New Zealand Junior Science Journal</div>
-
   <div class="menu-toggle" id="menu-toggle">☰</div>
-
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="Current Issue.html">NZJSJ Current Issue</a></li>
     <li><a href="Past Issues.html">NZJSJ Past Issues</a></li>
     <li><a href="Guidelines.html">Guidelines</a></li>
     <li><a href="FAQ.html">FAQ</a></li>
-    <li><a href="Submissions.html" class="submission-button active">Submission Portal</a></li>
+    <li>
+      <a href="https://forms.gle/Mtps8nbLy9AL2FeL8" target="_blank" class="submission-button">
+        Submission Portal
+      </a>
+    </li>
   </ul>
 </nav>
 
 <!-- MAIN CONTENT -->
 <div class="content-container">
-  <h1>Submission Portal</h1>
-  <p>Welcome to the NZJSJ submission portal! Please fill out the form below to submit your manuscript.</p>
+  <h1>Welcome to NZJSJ</h1>
+  <p>
+    Explore our current and past issues, read our guidelines, or submit your manuscript by clicking the Submission Portal link in the navigation bar above. Your submission will open in a new tab on Google Forms.
+  </p>
 
-  <!-- GOOGLE FORM EMBED -->
-  <iframe
-    src="https://docs.google.com/forms/d/e/1FAIpQLSeuEIW4DHGpNZB_oK0Kj7ZRyEOWbxnMwjpvEnLhqHMoIbtjnQ/viewform?usp=publish-editor"
-    class="form-container"
-    allowfullscreen
-  ></iframe>
+  <a href="https://forms.gle/Mtps8nbLy9AL2FeL8" target="_blank" class="submission-link">
+    Open Submission Form
+  </a>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <h1>The New Zealand Junior Science Journal</h1>
   <p>Follow us on Instagram or email us with any questions.</p>
-
   <div class="social-icons">
     <a href="https://www.instagram.com/nz_junior_science_journal" target="_blank">
       <img src="Pictures/Instagram.png" alt="Instagram">
@@ -209,10 +184,7 @@
 <script>
   const toggle = document.getElementById("menu-toggle");
   const navLinks = document.getElementById("nav-links");
-
-  toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+  toggle.addEventListener("click", () => navLinks.classList.toggle("active"));
 </script>
 
 </body>
